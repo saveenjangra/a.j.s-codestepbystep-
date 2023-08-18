@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      // month and day start from 0 to 11,0 to 6 zero is sunday
+      let date = new Date();
+      console.log(date);
+      console.log(date.getFullYear());
+      console.log(date.getMonth());
+      console.log(date.getDay());
+      console.log(date.getHours());
+      console.log(date.getMinutes());
+      console.log(date.getSeconds());
+      console.log(date.getMilliseconds());
+
+      // let customDate=new Date("11/29/1988 10:23:44")
+      let customDate = new Date("11-29-1988 18:23:44");
+      console.log(customDate);
+      console.log(customDate.getMonth());
+      // gives value of moth is 10
+
+      // =>if u want name of month than make a array consisting of months list
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      console.log(months[customDate.getMonth()]);
+
+      const day = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      console.log(day[customDate.getDay()]);
+
+      function getdatetime() {
+        let input = document.getElementById("dateinput").value;
+        console.log(input);
+        // console.log((input.getDay()))
+        //  it gives error but why it is valid method =>bcoz it is giving string but how to convert it in numeric
+        let date = new Date(input);
+        console.log(date);
+        console.log(date.getDate());
+        console.log(date.getMonth());
+        console.log(date.getDay());
+      }
+      function comparedate() {
+        let input = document.getElementById("dateinput").value;
+        let selectedDate = new Date(input);
+        let currentDate = new Date();
+        console.log(selectedDate);
+        console.log(currentDate);
+        // if u want to compare which is big than use ,use timespan it gives value in sec from 1979 to till
+        console.log(selectedDate.getTime());
+        console.log(currentDate.getTime());
+        //  if u want to compare selected date is greater than currrent date than compare it
+        console.log(selectedDate.getTime() > currentDate.getTime());
+
+        //  if u want to check the diff than
+        const diffTime = Math.abs(
+          selectedDate.getTime() - currentDate.getTime()
+        );
+        // use math.abs for absolute value
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        console.log(diffDays);
+        // math.ceil for rounded value
+      }
+    </script>
+  </head>
+  <body>
+    <h1>java script date and time</h1>
+    <!-- <input type="date" id="dateinput">
+    <button onclick="getdatetime()">get date</button> -->
+    <input type="datetime-local" id="dateinput" />
+    <button onclick="getdatetime()">get time</button>
+    <button onclick="comparedate()">compare date</button>
+  </body>
+</html>

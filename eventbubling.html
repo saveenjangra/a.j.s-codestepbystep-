@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        background-color: rgb(34, 25, 203);
+        padding: 10px;
+        border: 5px solid black;
+      }
+      .middle {
+        background-color: rgb(42, 165, 89);
+        padding: 20px;
+        border: 5px solid black;
+      }
+      .inner {
+        background-color: brown;
+        padding: 30px;
+        border: 5px solid black;
+      }
+    </style>
+    <script>
+      function function1() {
+        alert("inner");
+        event.stopPropagation();
+      }
+      function function2() {
+        alert("middle");
+        event.stopPropagation();
+      }
+      function function3() {
+        alert("outer");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>event bubling</h1>
+    <div onclick="function3()" class="outer">
+      <div onclick="function2()" class="middle">
+        <div onclick="function1()" class="inner"></div>
+      </div>
+    </div>
+  </body>
+</html>
